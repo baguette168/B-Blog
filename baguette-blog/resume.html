@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的简历 - 我的个人博客</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 导航栏 -->
+        <nav>
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="about.html">关于我</a></li>
+                <li><a href="resume.html" class="active">我的简历</a></li>
+                <li><a href="hobby.html">摄影作品</a></li>
+            </ul>
+        </nav>
+
+        <!-- 主要内容区域 -->
+        <main>
+            <!-- 页眉 -->
+            <header class="resume-header">
+                <div class="resume-title">
+                    <h1>我的简历</h1>
+                    <p>个人信息与专业经历</p>
+                </div>
+                <div class="resume-actions">
+                    <a href="#" class="btn btn-primary" onclick="window.print()">打印简历</a>
+                </div>
+            </header>
+
+            <!-- 内容包装器 -->
+            <div class="resume-content">
+                <!-- 个人信息卡片 -->
+                <section class="resume-card profile-card">
+                    <div class="profile-header">
+                        <img src="images/profile.jpg" alt="个人照片" class="profile-image">
+                        <div class="profile-info">
+                            <h2>个人信息</h2>
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <i class="fas fa-user"></i>
+                                    <span>姓名：袁卓荣</span>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>学校：中南财经政法大学</span>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fas fa-book"></i>
+                                    <span>专业：信息安全</span>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>邮箱：2366980328@qq.com</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 教育经历 -->
+                <section class="resume-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-university"></i> 教育经历</h2>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-date">2023.09 - 至今</div>
+                                <h3>中南财经政法大学</h3>
+                                <p class="timeline-subtitle">信息安全 | 本科在读</p>
+                                <ul class="timeline-details">
+                                    <li>主修课程：Web安全、现代密码学、Web前端开发、Java程序设计、网络安全技术</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 实习经历 -->
+                <section class="resume-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-briefcase"></i> 实习经历</h2>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-date">2024.10 - 2024.11</div>
+                                <h3>华链云有限公司</h3>
+                                <p class="timeline-subtitle">数据分析实习生</p>
+                                <ul class="timeline-details">
+                                    <li>参与线上结合线下实习项目</li>
+                                    <li>学习并实践数据分析相关技能</li>
+                                    <li>协助团队完成数据分析工作</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 竞赛经历 -->
+                <section class="resume-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-trophy"></i> 竞赛经历</h2>
+                    </div>
+                    <div class="experience-grid">
+                        <div class="experience-item">
+                            <div class="experience-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <h3>国际竞赛</h3>
+                            <ul>
+                                <li>第41届美国大学生数学建模竞赛（MCM）M奖</li>
+                            </ul>
+                        </div>
+                        <div class="experience-item">
+                            <div class="experience-icon">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <h3>学术研究</h3>
+                            <ul>
+                                <li>第37、38、39届博文杯（工商管理学院）结项核心成员</li>
+                                <li>大学生创新创业训练计划（统计与数学学院）省级项目核心成员</li>
+                            </ul>
+                        </div>
+                        <div class="experience-item">
+                            <div class="experience-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <h3>创新创业</h3>
+                            <ul>
+                                <li>挑战杯创新赛道校级三等奖项目成员</li>
+                                <li>正大杯全国大学生市场调查与分析大赛校赛优秀奖项目成员</li>
+                                <li>全国大学生电子商务'创新、创意及创业'挑战赛实战赛道校级二等奖项目成员</li>
+                                <li>中国国际'互联网+'大学生创新创业大赛创业赛道校级项目成员</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 学生工作 -->
+                <section class="resume-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-briefcase"></i> 学生工作</h2>
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>信安2301班</h3>
+                                <p class="timeline-subtitle">体育委员</p>
+                                <ul class="timeline-details">
+                                    <li>组织班级体育活动</li>
+                                    <li>协调班级体育赛事</li>
+                                    <li>促进班级同学体育锻炼</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 联系表单 -->
+                <section class="resume-card contact-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-envelope"></i> 联系我</h2>
+                    </div>
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="name">姓名</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">邮箱</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="subject">主题</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="message">留言</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">发送消息</button>
+                    </form>
+                </section>
+            </div>
+
+            <!-- 页脚 -->
+            <footer>
+                <p>&copy; 2024 我的个人博客. All rights reserved.</p>
+            </footer>
+        </main>
+    </div>
+</body>
+</html> 

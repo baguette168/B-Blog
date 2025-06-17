@@ -1,0 +1,1022 @@
+/* 全局变量定义 */
+:root {
+    /* 主题颜色 */
+    --primary-color: #4a90e2;    /* 主色调：蓝色 */
+    --secondary-color: #2c3e50;  /* 次要色调：深蓝灰色 */
+    --accent-color: #e74c3c;     /* 强调色：红色 */
+    --light-gray: #f5f6fa;       /* 浅灰色背景 */
+    --border-color: #e1e1e1;     /* 边框颜色 */
+    
+    /* 文字颜色 */
+    --text-color: #333333;       /* 主要文字颜色 */
+    --light-text: #666666;       /* 次要文字颜色 */
+    
+    /* 背景颜色 */
+    --bg-color: #ffffff;         /* 页面背景色 */
+    --card-bg: #ffffff;          /* 卡片背景色 */
+    
+    /* 阴影效果 */
+    --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* 基础阴影 */
+    
+    /* 过渡动画 */
+    --transition: all 0.3s ease;  /* 统一过渡效果 */
+    --nav-bg: #2c3e50;      /* 深蓝色导航栏 */
+    --nav-text: #ffffff;    /* 导航文字白色 */
+    --main-bg: #f5f5f5;     /* 浅灰色背景 */
+    --text-primary: #333333;/* 主要文字颜色 */
+    --text-secondary: #666666; /* 次要文字颜色 */
+    --accent: #3498db;      /* 强调色 */
+    --nav-width: 280px;     /* 导航栏宽度 */
+    --content-max-width: 1000px; /* 内容区最大宽度 */
+    --table-stripe: #f2f2f2; /* 表格条纹背景 */
+}
+
+/* 全局样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 全局布局设置 */
+body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+/* 响应式容器 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* 导航栏布局 - 使用Flexbox实现水平布局 */
+nav {
+    position: sticky;  /* 粘性定位，实现滚动时固定在顶部 */
+    top: 0;
+    z-index: 1000;
+    background-color: var(--bg-color);
+    box-shadow: var(--shadow);
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+}
+
+nav ul {
+    display: flex;  /* Flexbox布局 */
+    justify-content: center;  /* 居中对齐 */
+    align-items: center;  /* 垂直居中 */
+    list-style: none;
+    gap: 2rem;  /* 间距设置 */
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--primary-color);
+    background-color: rgba(74, 144, 226, 0.1);
+}
+
+/* 响应式导航栏 */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;  /* 垂直排列 */
+        gap: 1rem;
+    }
+}
+
+/* 英雄区域样式 - 使用Grid布局 */
+.hero {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;  /* 相对定位，用于子元素绝对定位的参考 */
+    overflow: hidden;
+}
+
+/* 卡片网格布局 - 使用Grid实现响应式布局 */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  /* 响应式网格 */
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* 卡片样式 */
+.card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+/* 个人资料卡片 - 使用Grid布局 */
+.profile-card {
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+}
+
+.profile-header {
+    display: flex;  /* Flexbox布局 */
+    flex-direction: column;  /* 垂直排列 */
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* 信息网格 - 使用Grid实现响应式布局 */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));  /* 响应式网格 */
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* 时间线布局 - 使用相对定位和伪元素 */
+.timeline {
+    position: relative;
+    padding: 20px 0;
+}
+
+.timeline-item {
+    position: relative;  /* 相对定位，作为时间线点的参考 */
+    padding-left: 30px;
+    margin-bottom: 30px;
+}
+
+/* 时间线点样式 - 使用绝对定位 */
+.timeline-dot {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 14px;
+    height: 14px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.2);
+}
+
+/* 时间线连接线 - 使用伪元素 */
+.timeline-dot::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 14px;
+    width: 2px;
+    height: calc(100% + 16px);
+    background-color: var(--border-color);
+    transform: translateX(-50%);
+}
+
+/* 经验网格 - 使用Grid实现响应式布局 */
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));  /* 响应式网格 */
+    gap: 1.5rem;
+}
+
+/* 联系表单 - 使用Grid布局 */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;  /* 两列布局 */
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* 响应式设计 - 使用媒体查询 */
+@media (max-width: 768px) {
+    /* 移动端网格布局调整 */
+    .card-grid {
+        grid-template-columns: 1fr;  /* 单列布局 */
+    }
+    
+    /* 移动端表单布局调整 */
+    .form-grid {
+        grid-template-columns: 1fr;  /* 单列布局 */
+    }
+    
+    /* 移动端信息网格调整 */
+    .info-grid {
+        grid-template-columns: 1fr;  /* 单列布局 */
+    }
+}
+
+/* 页眉样式 */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #666;
+    font-size: 1.2em;
+}
+
+/* 内容包装器 */
+.content-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 卡片样式 */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card h2 {
+    color: var(--secondary-color);
+    font-size: 1.8em;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.8rem;
+}
+
+/* 个人简介样式 */
+.profile-content {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.profile-image-container {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.profile-image-container:hover {
+    transform: scale(1.02);
+}
+
+.profile-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.profile-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.profile-overlay h3 {
+    font-size: 1.5em;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.profile-text {
+    text-align: center;
+}
+
+.profile-text .highlight {
+    font-size: 1.2em;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+/* 时间线样式 */
+.timeline-date {
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-content {
+    background-color: rgba(74, 144, 226, 0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.timeline-content:hover {
+    background-color: rgba(74, 144, 226, 0.1);
+}
+
+.timeline-content h3 {
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+/* 页脚样式 */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 4rem;
+    color: var(--light-text);
+    border-top: 1px solid var(--border-color);
+}
+
+/* 简历页面特定样式 */
+.resume-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    color: white;
+}
+
+.resume-title h1 {
+    color: white;
+    margin-bottom: 0.5rem;
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+.resume-title p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+}
+
+.resume-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background-color: white;
+    color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.resume-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.resume-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    transition: var(--transition);
+    border: 1px solid var(--border-color);
+}
+
+.resume-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.card-header h2 {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.card-header i {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+}
+
+.profile-image {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid white;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.info-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.info-item i {
+    color: white;
+    font-size: 1.3rem;
+}
+
+.info-item span {
+    color: white;
+    font-size: 1.1rem;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 30px;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 14px;
+    height: 14px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.2);
+}
+
+.timeline-dot::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 14px;
+    width: 2px;
+    height: calc(100% + 16px);
+    background-color: var(--border-color);
+    transform: translateX(-50%);
+}
+
+.timeline-item:last-child .timeline-dot::before {
+    display: none;
+}
+
+.timeline-date {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.timeline-content {
+    background-color: rgba(74, 144, 226, 0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: var(--transition);
+    border: 1px solid var(--border-color);
+}
+
+.timeline-content:hover {
+    background-color: rgba(74, 144, 226, 0.1);
+    transform: translateX(5px);
+}
+
+.timeline-content h3 {
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.timeline-subtitle {
+    color: var(--light-text);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.timeline-details {
+    list-style: none;
+    padding-left: 0;
+}
+
+.timeline-details li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.timeline-details li::before {
+    content: '•';
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.experience-item {
+    background-color: rgba(74, 144, 226, 0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: var(--transition);
+    border: 1px solid var(--border-color);
+}
+
+.experience-item:hover {
+    background-color: rgba(74, 144, 226, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.experience-icon {
+    width: 45px;
+    height: 45px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 1.2rem;
+}
+
+.experience-item h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.experience-item ul {
+    list-style: none;
+}
+
+.experience-item li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.experience-item li::before {
+    content: '•';
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+/* 故事内容样式 */
+.story-content {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.story-image {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.story-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    padding: 1rem;
+    color: white;
+}
+
+.story-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    text-align: center;
+}
+
+.story-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.story-text .highlight {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+.story-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+/* 竞赛经历样式 */
+.experience-item {
+    background-color: rgba(52, 152, 219, 0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.experience-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.experience-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.experience-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.experience-item ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.experience-item ul li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.experience-item ul li::before {
+    content: '•';
+    color: var(--secondary-color);
+    position: absolute;
+    left: 0;
+}
+
+/* 兴趣爱好样式 */
+.hobbies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.hobby-item {
+    background-color: rgba(52, 152, 219, 0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.hobby-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.hobby-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.hobby-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.hobby-item p {
+    color: var(--light-text);
+    margin-bottom: 1rem;
+}
+
+.hobby-progress {
+    background-color: rgba(52, 152, 219, 0.1);
+    height: 6px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: var(--secondary-color);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+/* 旅行足迹样式 */
+.travel-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.stat-item {
+    background-color: rgba(74, 144, 226, 0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+    background-color: rgba(74, 144, 226, 0.1);
+    box-shadow: var(--shadow);
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.travel-years {
+    display: grid;
+    gap: 2rem;
+}
+
+.year-section {
+    background-color: rgba(74, 144, 226, 0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.year-section:hover {
+    transform: translateX(5px);
+    background-color: rgba(74, 144, 226, 0.1);
+    box-shadow: var(--shadow);
+}
+
+.year-section h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.year-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.year-section li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.year-section li::before {
+    content: '•';
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .travel-stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .year-section {
+        padding: 1rem;
+    }
+}
+
+/* 摄影作品页面样式 */
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.month-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: rgba(52, 152, 219, 0.05);
+    border-radius: 8px;
+}
+
+.month-section h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.photo-item {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.photo-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.photo-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.photo-info {
+    padding: 1rem;
+}
+
+.photo-category {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.photo-category span {
+    font-size: 1.2rem;
+}
+
+.photo-category h3 {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.photo-info p {
+    color: var(--light-text);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .photo-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .photo-item img {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .photo-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-item img {
+        height: 180px;
+    }
+}
+
+/* 英雄区域样式 */
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+}
+
+.hero .subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    font-weight: 500;
+    line-height: 1.8;
+} 
