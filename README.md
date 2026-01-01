@@ -52,19 +52,4 @@ baguette-blog/
 
 2. 打开 `baguette-blog/index.html` 即可在浏览器中预览
 
-## 👤 关于作者
-
-- **姓名**：袁卓荣
-- **学校**：中南财经政法大学
-- **专业**：信息安全
-- **邮箱**：2366980328@qq.com
-
-## 📝 课程信息
-
-- **课程名称**：Web 前端开发
-- **项目类型**：课程作业
-- **完成时间**：2025 年 6 月
-
----
-
 > 🔀 *本仓库 Fork 自 [baguette-ui/baguette-ui.github.io](https://github.com/baguette-ui/baguette-ui.github. io)，因原账户功能受限，现迁移至此账户作为个人作品展示。*
